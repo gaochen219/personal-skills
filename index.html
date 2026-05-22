@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chen Gao · 高晨 — Personal Skill Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --glp-navy: #1f2d3a;
+    --glp-navy-2: #2f3f50;
+    --glp-ink: #14202b;
+    --glp-green: #2f9d54;
+    --glp-green-dark: #1f7a3e;
+    --glp-green-mid: #4cb673;
+    --glp-green-soft: #8fd4a4;
+    --accent: #b08a48;
+    --accent-soft: #d8c298;
+    --bone: #f3eee3;
+    --bone-2: #ebe4d4;
+    --line: #d8cfbc;
+    --muted: #8a7f6a;
+    --text: #1f2d3a;
+    --ind-glp: #2f9d54;
+    --ind-retail: #b08a48;
+    --ind-internet: #1f2d3a;
+    --ind-healthcare: #c25450;
+    --ind-education: #6b7fb0;
+    --ind-consulting: #8a7f6a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background:
+      radial-gradient(ellipse at 20% 0%, #faf7ef 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, #ece4d2 0%, transparent 60%),
+      var(--bone);
+    color: var(--text);
+    font-family: "Inter", -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .page { min-height: 100vh; padding: 48px 28px 96px; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+
+  /* ============ Top nav ============ */
+  .topnav {
+    width: 100%; max-width: 1280px; display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 18px; border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand .mono {
+    width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--accent);
+    display: grid; place-items: center;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic; font-size: 16px; color: var(--accent); font-weight: 500; letter-spacing: -1px;
+  }
+  .brand .stack { line-height: 1.1; }
+  .brand .stack .a { font-size: 9px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+  .brand .stack .b { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; color: var(--glp-navy); font-size: 17px; }
+  .lang-toggle { display: flex; gap: 4px; background: rgba(0,0,0,0.04); border-radius: 999px; padding: 3px; }
+  .lang-toggle button {
+    background: transparent; border: none; padding: 6px 16px; border-radius: 999px;
+    font-family: inherit; font-size: 11px; letter-spacing: 2px; color: var(--muted);
+    cursor: pointer; text-transform: uppercase; font-weight: 600; transition: all .25s;
+  }
+  .lang-toggle button.active { background: var(--glp-navy); color: var(--bone); }
+
+  /* ============ Hero ============ */
+  .hero { text-align: center; max-width: 920px; margin-top: 12px; }
+  .hero .eyebrow {
+    font-size: 10px; letter-spacing: 5px; color: var(--accent); font-weight: 600;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic; font-weight: 400; font-size: 56px;
+    color: var(--glp-navy); margin: 10px 0 8px; letter-spacing: 0.5px;
+  }
+  .hero h1 .cn {
+    font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-style: normal; font-weight: 300; font-size: 38px;
+    margin-left: 16px; letter-spacing: 12px; color: var(--glp-navy-2);
+  }
+  .hero p.tagline { color: var(--muted); font-size: 13px; letter-spacing: 1px; max-width: 640px; margin: 0 auto; line-height: 1.7; }
+  .hero .stats { display: flex; justify-content: center; gap: 56px; margin-top: 24px; }
+  .hero .stats .stat { text-align: center; }
+  .hero .stats .num {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+    font-size: 36px; color: var(--accent); line-height: 1;
+  }
+  .hero .stats .label { font-size: 10px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 6px; font-weight: 600; }
+
+  /* ============ Controls ============ */
+  .controls {
+    display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; align-items: center;
+    width: 100%; max-width: 1100px;
+  }
+  .search-box {
+    position: relative; min-width: 280px;
+  }
+  .search-box input {
+    width: 100%; padding: 10px 18px 10px 38px; border-radius: 999px; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.5); color: var(--glp-navy); font-family: inherit; font-size: 12px;
+    letter-spacing: 1px; outline: none; transition: border-color .25s;
+  }
+  .search-box input::placeholder { color: var(--muted); letter-spacing: 1.5px; }
+  .search-box input:focus { border-color: var(--accent); }
+  .search-box::before {
+    content: ''; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    width: 14px; height: 14px;
+    background: no-repeat center / contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a7f6a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='8'/><path d='m21 21-4.3-4.3'/></svg>");
+  }
+  .ind-filters { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .ind-chip {
+    background: transparent; border: 1px solid var(--line); color: var(--glp-navy);
+    padding: 7px 14px; border-radius: 999px; font-size: 10.5px; cursor: pointer;
+    font-family: inherit; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600;
+    transition: all .25s; display: flex; align-items: center; gap: 6px;
+  }
+  .ind-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ind); }
+  .ind-chip:hover { border-color: var(--accent); }
+  .ind-chip.active { background: var(--ind); color: white; border-color: var(--ind); }
+  .ind-chip.active .dot { background: rgba(255,255,255,.8); }
+  .zoom-ctrl { display: flex; gap: 4px; }
+  .zoom-ctrl button {
+    width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line);
+    background: transparent; color: var(--glp-navy); cursor: pointer; font-family: inherit;
+    font-size: 14px; font-weight: 600; transition: all .25s;
+  }
+  .zoom-ctrl button:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ============ Tree stage ============ */
+  .tree-stage {
+    width: 100%; max-width: 1100px; aspect-ratio: 1 / 1; max-height: 820px;
+    position: relative; border-radius: 12px;
+    background:
+      radial-gradient(ellipse at center, rgba(255,255,255,.4) 0%, transparent 70%),
+      rgba(255,255,255,.18);
+    box-shadow:
+      inset 0 0 1px rgba(20, 30, 50, 0.06),
+      0 18px 60px rgba(31, 45, 58, 0.06);
+    overflow: hidden;
+  }
+  .grain {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.7'/></svg>");
+    mix-blend-mode: multiply; opacity: 0.07; pointer-events: none;
+  }
+  svg.tree { width: 100%; height: 100%; display: block; position: relative; z-index: 1; }
+
+  .link { fill: none; stroke: var(--accent); stroke-opacity: 0.35; stroke-width: 1; transition: stroke-opacity .25s, stroke-width .25s; }
+  .link.secondary { stroke-dasharray: 2 3; stroke-opacity: 0.18; }
+  .link.highlight { stroke: var(--accent); stroke-opacity: 0.9; stroke-width: 1.5; }
+
+  .node circle { transition: r .25s, opacity .25s; }
+  .node text { font-family: "Inter", "PingFang SC", sans-serif; pointer-events: none; transition: opacity .25s; }
+  .node.center text {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+    fill: var(--glp-navy);
+  }
+  .node.industry text {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  .node.capability text {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.5px; fill: var(--glp-navy);
+  }
+  .node.technique text {
+    font-size: 9.5px; font-weight: 500; fill: var(--glp-navy-2); letter-spacing: 0.2px;
+  }
+  .node.dim { opacity: 0.12; }
+  .link.dim { opacity: 0.05; }
+  .node.match circle { stroke: var(--accent); stroke-width: 2.5; }
+  .node.match text { fill: var(--accent); font-weight: 700; }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute; pointer-events: none; opacity: 0;
+    background: var(--glp-navy); color: var(--bone);
+    padding: 10px 14px; border-radius: 6px; font-size: 11px; line-height: 1.5;
+    max-width: 240px; transition: opacity .15s; z-index: 10;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .tooltip .tip-title { font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; }
+  .tooltip .tip-sub { color: var(--accent-soft); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .tooltip .tip-ind {
+    display: inline-block; padding: 2px 7px; border-radius: 999px; font-size: 9px;
+    margin: 4px 4px 0 0; letter-spacing: 0.5px; font-weight: 600;
+  }
+
+  /* ============ Timeline ============ */
+  .timeline-section {
+    width: 100%; max-width: 1100px; margin-top: 32px;
+  }
+  .section-title { text-align: center; margin-bottom: 24px; }
+  .section-title .eyebrow {
+    font-size: 10px; letter-spacing: 5px; color: var(--accent); font-weight: 600;
+    text-transform: uppercase;
+  }
+  .section-title h2 {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: 30px; color: var(--glp-navy); margin-top: 8px;
+  }
+  .timeline {
+    position: relative; padding: 80px 12px 28px;
+    background: rgba(255,255,255,0.18); border-radius: 12px;
+  }
+  .timeline-axis {
+    position: absolute; left: 40px; right: 40px; top: 100px; height: 1px;
+    background: var(--line);
+  }
+  .timeline-years { display: flex; justify-content: space-between; padding: 0 40px; position: relative; }
+  .timeline-years .year {
+    font-size: 9px; letter-spacing: 1.5px; color: var(--muted); font-weight: 600;
+    transform: translateY(-44px); position: relative;
+  }
+  .timeline-years .year::before {
+    content: ''; position: absolute; left: 50%; bottom: -10px; width: 1px; height: 6px;
+    background: var(--line); transform: translateX(-50%);
+  }
+  .timeline-bars {
+    position: relative; padding: 16px 40px 0; margin-top: -20px;
+  }
+  .timeline-bar {
+    position: relative; height: 32px; margin: 6px 0;
+    cursor: pointer;
+  }
+  .timeline-bar .fill {
+    position: absolute; top: 8px; height: 14px; border-radius: 7px;
+    background: var(--ind);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: all .25s;
+    display: flex; align-items: center; padding: 0 12px;
+    font-size: 10px; font-weight: 600; color: white; letter-spacing: 0.5px;
+    overflow: hidden; white-space: nowrap;
+  }
+  .timeline-bar:hover .fill { top: 6px; height: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+  .timeline-detail {
+    display: none;
+    padding: 18px 24px; margin-top: 16px; background: rgba(255,255,255,0.5);
+    border-left: 3px solid var(--ind, var(--accent)); border-radius: 4px;
+  }
+  .timeline-detail.active { display: block; }
+  .timeline-detail h3 {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+    font-size: 22px; color: var(--glp-navy); margin-bottom: 4px;
+  }
+  .timeline-detail .meta { font-size: 11px; color: var(--muted); letter-spacing: 1px; margin-bottom: 12px; }
+  .timeline-detail ul { list-style: none; padding: 0; }
+  .timeline-detail li {
+    font-size: 12px; line-height: 1.7; color: var(--text); padding-left: 16px; position: relative; margin-bottom: 4px;
+  }
+  .timeline-detail li::before {
+    content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+  }
+
+  /* ============ Education ============ */
+  .education-section { width: 100%; max-width: 1100px; margin-top: 28px; }
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .edu-card {
+    background: rgba(255,255,255,0.4); border: 1px solid var(--line); border-radius: 8px;
+    padding: 22px; transition: transform .25s, box-shadow .25s;
+  }
+  .edu-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(31, 45, 58, 0.08); }
+  .edu-card .period { font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; text-transform: uppercase; }
+  .edu-card h4 {
+    font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: 19px; color: var(--glp-navy); margin: 6px 0 4px;
+  }
+  .edu-card .field { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+
+  /* ============ Footer ============ */
+  .footer {
+    width: 100%; max-width: 1100px; margin-top: 56px; padding-top: 28px;
+    border-top: 1px solid var(--line); display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 16px;
+  }
+  .footer .left { font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  .footer .right { display: flex; gap: 18px; font-size: 11px; }
+  .footer a { color: var(--glp-navy); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: color .2s; }
+  .footer a:hover { color: var(--accent); }
+
+  /* ============ Mobile ============ */
+  @media (max-width: 760px) {
+    .page { padding: 28px 16px 60px; }
+    .hero h1 { font-size: 38px; }
+    .hero h1 .cn { font-size: 26px; letter-spacing: 8px; margin-left: 8px; display: block; margin-top: 4px; }
+    .hero .stats { gap: 28px; }
+    .hero .stats .num { font-size: 28px; }
+    .tree-stage { aspect-ratio: 1 / 1.05; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .controls { gap: 10px; }
+    .search-box { min-width: 100%; }
+    .timeline-years .year { font-size: 8px; }
+    .footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ Top nav ============ -->
+  <div class="topnav">
+    <div class="brand">
+      <div class="mono">CG</div>
+      <div class="stack">
+        <div class="a" data-i18n="brand-eyebrow">Personal Skill Tree</div>
+        <div class="b" data-i18n="brand-name">Chen Gao · 高晨</div>
+      </div>
+    </div>
+    <div class="lang-toggle">
+      <button data-lang="en">EN</button>
+      <button data-lang="zh" class="active">中文</button>
+    </div>
+  </div>
+
+  <!-- ============ Hero ============ -->
+  <div class="hero">
+    <div class="eyebrow" data-i18n="hero-eyebrow">个人技能树 · Personal Skill Tree</div>
+    <h1><span data-i18n="hero-name-en">Chen Gao</span><span class="cn" data-i18n="hero-name-cn">高 晨</span></h1>
+    <p class="tagline" data-i18n="hero-tagline">15+ 年数据与 AI 从业沉淀 · 跨零售、互联网、医疗、教育、物流地产六大行业 · 让数字化与 AI 赋能业务有更多角度与方案。</p>
+    <div class="stats">
+      <div class="stat"><div class="num">6</div><div class="label" data-i18n="stat-ind">Industries · 行业</div></div>
+      <div class="stat"><div class="num">9</div><div class="label" data-i18n="stat-cap">Capabilities · 能力域</div></div>
+      <div class="stat"><div class="num">43</div><div class="label" data-i18n="stat-tech">Techniques · 技术方法</div></div>
+    </div>
+  </div>
+
+  <!-- ============ Controls ============ -->
+  <div class="controls">
+    <div class="search-box">
+      <input id="search" type="text" placeholder="搜索 / Search · 例如 XGBoost、AI 中台 …" />
+    </div>
+    <div class="ind-filters" id="ind-filters"><!-- injected --></div>
+    <div class="zoom-ctrl">
+      <button id="zoom-in" title="Zoom in">+</button>
+      <button id="zoom-out" title="Zoom out">−</button>
+      <button id="zoom-reset" title="Reset" style="width:auto; padding:0 10px; border-radius:999px; font-size:10px; letter-spacing:1.5px;">1:1</button>
+    </div>
+  </div>
+
+  <!-- ============ Tree stage ============ -->
+  <div class="tree-stage" id="stage">
+    <div class="grain"></div>
+    <svg class="tree" id="tree"></svg>
+    <div class="tooltip" id="tooltip"></div>
+  </div>
+
+  <!-- ============ Timeline ============ -->
+  <div class="timeline-section">
+    <div class="section-title">
+      <div class="eyebrow" data-i18n="timeline-eyebrow">Career Timeline · 履历时间线</div>
+      <h2 data-i18n="timeline-title">六段经历 · 一条数据之路</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-years" id="timeline-years"></div>
+      <div class="timeline-axis"></div>
+      <div class="timeline-bars" id="timeline-bars"></div>
+      <div id="timeline-details"></div>
+    </div>
+  </div>
+
+  <!-- ============ Education ============ -->
+  <div class="education-section">
+    <div class="section-title">
+      <div class="eyebrow" data-i18n="edu-eyebrow">Education · 教育背景</div>
+      <h2 data-i18n="edu-title">中美名校 · 经管与统计</h2>
+    </div>
+    <div class="edu-grid" id="edu-grid"></div>
+  </div>
+
+  <!-- ============ Footer ============ -->
+  <div class="footer">
+    <div class="left">© 2026 Chen Gao · 高晨 · AI · Data · Strategy</div>
+    <div class="right">
+      <a href="mailto:cgao1@glp.com">cgao1@glp.com</a>
+      <a href="https://github.com/gaochen219/personal-skills" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const I18N = {
+  zh: {
+    'brand-eyebrow': '个人技能树',
+    'brand-name': 'Chen Gao · 高晨',
+    'hero-eyebrow': '个人技能树 · Personal Skill Tree',
+    'hero-name-en': 'Chen Gao',
+    'hero-name-cn': '高 晨',
+    'hero-tagline': '15+ 年数据与 AI 从业沉淀 · 跨零售、互联网、医疗、教育、物流地产六大行业 · 让数字化与 AI 赋能业务有更多角度与方案。',
+    'stat-ind': '行业 / Industries',
+    'stat-cap': '能力域 / Capabilities',
+    'stat-tech': '技术方法 / Techniques',
+    'timeline-eyebrow': '履历时间线 · Career Timeline',
+    'timeline-title': '六段经历 · 一条数据之路',
+    'edu-eyebrow': '教育背景 · Education',
+    'edu-title': '中美名校 · 经管与统计',
+    'search-ph': '搜索 / Search · 例如 XGBoost、AI 中台 …',
+    'filter-all': '全部行业',
+  },
+  en: {
+    'brand-eyebrow': 'Personal Skill Tree',
+    'brand-name': 'Chen Gao · 高晨',
+    'hero-eyebrow': 'Personal Skill Tree · 个人技能树',
+    'hero-name-en': 'Chen Gao',
+    'hero-name-cn': '高 晨',
+    'hero-tagline': '15+ years across Data & AI · Spanning six industries — Retail, Internet, Healthcare, Higher Ed and Logistics · Where data-thinking meets business outcomes.',
+    'stat-ind': 'Industries',
+    'stat-cap': 'Capabilities',
+    'stat-tech': 'Techniques',
+    'timeline-eyebrow': 'Career Timeline · 履历时间线',
+    'timeline-title': 'Six Chapters · One Path of Data',
+    'edu-eyebrow': 'Education · 教育背景',
+    'edu-title': 'Schools in China & US · Econ · Statistics',
+    'search-ph': 'Search · e.g. XGBoost, AI Platform …',
+    'filter-all': 'All Industries',
+  }
+};
+
+const INDUSTRIES = [
+  { id: 'glp',        en: 'Logistics & Real Estate', cn: '物流地产',   color: '#2f9d54', short_en: 'GLP',        short_cn: '普洛斯',    angleHint: -90  },
+  { id: 'retail',     en: 'Retail',                   cn: '零售',        color: '#b08a48', short_en: 'Retail',     short_cn: '零售',       angleHint: -30  },
+  { id: 'internet',   en: 'Internet & E-commerce',    cn: '互联网与电商', color: '#1f2d3a', short_en: 'Internet',   short_cn: '互联网',     angleHint: 30   },
+  { id: 'healthcare', en: 'Healthcare & Pharma',      cn: '医疗健康',     color: '#c25450', short_en: 'Healthcare', short_cn: '医疗',       angleHint: 90   },
+  { id: 'education',  en: 'Higher Education',         cn: '高等教育',     color: '#6b7fb0', short_en: 'Education',  short_cn: '教育',       angleHint: 150  },
+  { id: 'consulting', en: 'Consulting',               cn: '咨询',         color: '#8a7f6a', short_en: 'Consulting', short_cn: '咨询',       angleHint: 210  },
+];
+
+const CAPABILITIES = [
+  { id: 'ai-strategy', en: 'AI Strategy & Platform',     cn: 'AI 战略与中台' },
+  { id: 'llm',         en: 'LLM Applications',           cn: '大模型应用' },
+  { id: 'ml',          en: 'Data Science & ML',          cn: '数据科学与机器学习' },
+  { id: 'bi',          en: 'BI & Analytics',             cn: '商业智能与分析' },
+  { id: 'growth',      en: 'Growth & Marketing',         cn: '用户增长与营销' },
+  { id: 'ops',         en: 'Supply Chain & Operations',  cn: '供应链与运营优化' },
+  { id: 'data-infra',  en: 'Data Governance & Infra',    cn: '数据治理与基座' },
+  { id: 'team',        en: 'Team & Org Building',        cn: '团队与组织建设' },
+  { id: 'insight',     en: 'Strategy & Insight',         cn: '战略与商业洞察' },
+];
+
+/* Each technique has: id, en, cn, cap (primary capability id), caps (extra), inds (industries where it was applied) */
+const TECHNIQUES = [
+  /* LLM */
+  { id: 'qwen',       en: 'Qwen LLM',                en2: 'Qwen 大模型',          cn: 'Qwen 大模型',        cap: 'llm',         caps: [],              inds: ['retail'] },
+  { id: 'chatbot',    en: 'Enterprise ChatBot',      cn: '企业级 ChatBot',         cap: 'llm',         caps: [],              inds: ['retail'] },
+  { id: 'rag',        en: 'RAG / Knowledge Base',    cn: 'RAG 知识库',             cap: 'llm',         caps: ['ai-strategy'], inds: ['retail','glp'] },
+  { id: 'agent',      en: 'AI Agent Market',         cn: 'AI Agent Market',       cap: 'llm',         caps: ['ai-strategy'], inds: ['retail'] },
+  { id: 'gov',        en: 'AI Governance',           cn: 'AI 合规治理',            cap: 'ai-strategy', caps: ['llm'],         inds: ['retail','glp'] },
+  { id: 'multimodal', en: 'Multimodal · OCR · NLP',  cn: '多模态 · OCR · NLP',     cap: 'llm',         caps: ['ml'],          inds: ['retail'] },
+  { id: 'prompt',     en: 'Prompt Engineering',      cn: 'Prompt 工程',            cap: 'llm',         caps: ['team'],        inds: ['retail','glp'] },
+
+  /* ML */
+  { id: 'xgb',        en: 'XGBoost',                 cn: 'XGBoost',                cap: 'ml',          caps: ['ops'],         inds: ['retail'] },
+  { id: 'lgbm',       en: 'LightGBM',                cn: 'LightGBM',               cap: 'ml',          caps: ['ops'],         inds: ['retail'] },
+  { id: 'kmeans',     en: 'K-Means Clustering',      cn: 'K-Means 聚类',           cap: 'ml',          caps: ['growth'],      inds: ['retail','internet'] },
+  { id: 'tree',       en: 'Decision Tree',           cn: '决策树',                  cap: 'ml',          caps: ['ops'],         inds: ['retail'] },
+  { id: 'ts',         en: 'Time-series Forecasting', cn: '时序预测',                cap: 'ml',          caps: ['ops'],         inds: ['retail','healthcare'] },
+  { id: 'elasticity', en: 'Price Elasticity Model',  cn: '价格弹性模型',           cap: 'ml',          caps: ['ops'],         inds: ['retail','internet'] },
+  { id: 'churn',      en: 'Churn Prediction',        cn: '流失预警模型',           cap: 'ml',          caps: ['growth'],      inds: ['education','internet'] },
+
+  /* Ops / Supply Chain (retail-heavy) */
+  { id: 'gis',        en: 'GIS Site Selection',      cn: 'GIS 智能选址',            cap: 'ops',         caps: ['ml','insight'],inds: ['retail'] },
+  { id: 'fc',         en: 'Demand & Inventory Forecast', cn: '销量 / 库存预测',     cap: 'ops',         caps: ['ml'],          inds: ['retail'] },
+  { id: 'assort',     en: 'Assortment Planning',     cn: '智能选品',                cap: 'ops',         caps: ['ml','insight'],inds: ['retail'] },
+  { id: 'schedule',   en: 'AI Workforce Scheduling', cn: 'AI 智能排班',             cap: 'ops',         caps: ['ml'],          inds: ['retail'] },
+  { id: 'safety',     en: 'Store Safety Diagnostic', cn: '门店安全智能诊断',       cap: 'ops',         caps: ['llm'],         inds: ['retail'] },
+  { id: 'cannibal',   en: 'Cannibalization Modeling', cn: '蚕食效应量化',           cap: 'ops',         caps: ['insight'],     inds: ['retail'] },
+
+  /* Growth & Marketing */
+  { id: 'precision',  en: 'Precision Targeting (圈人)', cn: '精准营销圈人',         cap: 'growth',      caps: ['ml'],          inds: ['retail','internet'] },
+  { id: 'lifecycle',  en: 'Customer Lifecycle Tiering',cn: '用户生命周期分层',     cap: 'growth',      caps: ['bi'],          inds: ['retail','internet'] },
+  { id: 'member',     en: 'Membership Model',          cn: '会员模型',              cap: 'growth',      caps: [],              inds: ['internet'] },
+  { id: 'pricing',    en: 'Pricing Strategy Algo',     cn: '价格策略算法',          cap: 'growth',      caps: ['ops'],         inds: ['internet'] },
+  { id: 'ltv',        en: 'LTV Optimization',          cn: 'LTV 优化',              cap: 'growth',      caps: ['bi'],          inds: ['internet'] },
+  { id: 'mmm',        en: 'Marketing Mix Modeling',    cn: '营销组合模型 (MMM)',    cap: 'growth',      caps: ['insight'],     inds: ['consulting','healthcare'] },
+
+  /* BI / Analytics */
+  { id: 'ab',         en: 'A/B Testing',               cn: 'A/B 测试',              cap: 'bi',          caps: ['growth'],      inds: ['internet','retail'] },
+  { id: 'funnel',     en: 'Funnel & Retention',        cn: '漏斗 · 留存分析',       cap: 'bi',          caps: ['growth'],      inds: ['internet','retail'] },
+  { id: 'product',    en: 'Product Mix Analytics',     cn: '商品分析 · 心智商品',   cap: 'bi',          caps: ['insight'],     inds: ['retail'] },
+  { id: 'merchant',   en: 'Merchant Analytics',        cn: '商家分析',              cap: 'bi',          caps: [],              inds: ['internet'] },
+  { id: 'traffic',    en: 'Traffic Conversion',        cn: '流量转化分析',          cap: 'bi',          caps: ['growth'],      inds: ['internet'] },
+  { id: 'kpi',        en: 'Sales KPI & Pipeline',      cn: '销售 KPI 与转化',       cap: 'bi',          caps: ['insight'],     inds: ['internet'] },
+  { id: 'aibi',       en: 'AI for BI',                 cn: 'AI for BI',             cap: 'bi',          caps: ['ai-strategy'], inds: ['retail'] },
+
+  /* Strategy / Insight */
+  { id: 'fcst',       en: 'Global Sales Forecasting',  cn: '全球销售预测',          cap: 'insight',     caps: ['bi','ml'],     inds: ['healthcare'] },
+  { id: 'portfolio',  en: 'Product Portfolio Mgmt',    cn: '产品组合管理',          cap: 'insight',     caps: [],              inds: ['healthcare'] },
+  { id: 'segment',    en: 'Market Segmentation',       cn: '市场细分',              cap: 'insight',     caps: ['growth'],      inds: ['healthcare'] },
+  { id: 'tiering',    en: 'Customer Tiering',          cn: '客户分层',              cap: 'insight',     caps: ['growth'],      inds: ['healthcare'] },
+  { id: 'opportunity',en: 'Industry Opportunity',      cn: '行业机会洞察',          cap: 'insight',     caps: [],              inds: ['internet','glp'] },
+  { id: 'trend',      en: 'Trend Foresight',           cn: '前瞻性趋势洞察',        cap: 'insight',     caps: [],              inds: ['retail','glp'] },
+  { id: 'scholar',    en: 'Scholarship Optimization',  cn: '奖学金分配优化',        cap: 'insight',     caps: ['ml'],          inds: ['education'] },
+
+  /* Data Infra */
+  { id: 'midplatform', en: 'AI Mid-Platform',          cn: 'AI 中台',               cap: 'ai-strategy', caps: ['data-infra'],  inds: ['retail','glp'] },
+  { id: 'datamigrate', en: 'Data Platform Migration',  cn: '数据基座迁移升级',      cap: 'data-infra',  caps: [],              inds: ['retail'] },
+  { id: 'modeling',    en: 'Multi-dim Data Modeling',  cn: '多维数据建模',          cap: 'data-infra',  caps: ['bi'],          inds: ['retail','internet'] },
+  { id: 'roadmap',     en: 'AI Strategy Roadmap',      cn: 'AI 战略路线图',         cap: 'ai-strategy', caps: ['team'],        inds: ['retail','glp'] },
+
+  /* Team */
+  { id: 'culture',     en: 'Data-driven Culture',      cn: '数据驱动文化',          cap: 'team',        caps: [],              inds: ['retail','internet','glp'] },
+  { id: 'training',    en: 'AI Training Curriculum',   cn: 'AI 培训体系',           cap: 'team',        caps: [],              inds: ['retail','glp'] },
+  { id: 'teambuild',   en: 'DS / DE / Analyst Team',   cn: '数据团队搭建',          cap: 'team',        caps: [],              inds: ['retail','internet','healthcare','education'] },
+  { id: 'crossfn',     en: 'Cross-functional Leadership', cn: '跨部门协同',          cap: 'team',        caps: ['insight'],     inds: ['retail','internet','healthcare','glp'] },
+];
+
+const EXPERIENCE = [
+  {
+    ind: 'glp', start: 2025.6, end: 2026.42,
+    role_en: 'Vice President · Big Data & AI', role_cn: '副总裁 · 大数据与人工智能',
+    org_en: 'GLP', org_cn: '普洛斯',
+    city_en: 'Shanghai', city_cn: '上海',
+    highlights_en: [
+      'Leading Big Data & AI agenda across GLP businesses — strategy, platform, governance.',
+      'Driving AI-enabled transformation of operations, asset and tenant analytics.',
+      'Building AI literacy and data-driven culture across the organization.',
+    ],
+    highlights_cn: [
+      '统筹普洛斯大数据与 AI 整体方向 — 战略、平台、合规治理。',
+      '推动 AI 赋能的运营、资产与客户分析体系建设。',
+      '在公司层面推广 AI 素养与数据驱动文化。',
+    ]
+  },
+  {
+    ind: 'retail', start: 2023.7, end: 2025.6,
+    role_en: 'Chief Data Officer', role_cn: '首席数据官 (CDO)',
+    org_en: 'Decathlon China', org_cn: '迪卡侬中国',
+    city_en: 'Shanghai', city_cn: '上海',
+    highlights_en: [
+      'Built AI mid-platform from 0→1; designed and executed enterprise AI roadmap.',
+      'Launched "Leap / 小跃" ChatBot on Qwen; enterprise knowledge base + AI Agent Market (HR/Ops/Safety/Finance).',
+      'GIS site selection (XGBoost) — 86% accuracy (+8pp), ¥25M annual savings; cannibalization quantified.',
+      'Demand forecast across all SKUs — 79% accuracy (+8pp), DSI –4 days, +¥15M revenue/year.',
+      'Price elasticity (LightGBM) — decision cycle –3 months, ¥10M saved per SKU.',
+      'Precision targeting (K-Means) — youth retention +5pp, +¥33M sales.',
+      'AI safety inspection (LLM + OCR/NLP) — 6,400 hours / ¥3.2M saved annually.',
+    ],
+    highlights_cn: [
+      '从 0→1 主导构建 AI 中台，设计并落地 AI 战略路线图。',
+      '基于 Qwen 推出企业级 ChatBot「小跃 / Leap」；构建知识库与 AI Agent Market (HR / OP / 安全 / 财报)。',
+      'GIS 智能选址 (XGBoost) — 准确率 86% (↑8pp)，年节约 2500 万；量化新店蚕食效应。',
+      '全品类销量预测 — 准确率 79% (↑8pp)，DSI 优化 4 天，年增收 1500 万。',
+      '价格弹性模拟 (LightGBM) — 决策周期 –3 月，单品节约 1000 万。',
+      '精准营销圈人 (K-Means) — 年轻客群留存 +5pp，带动销售 +3300 万。',
+      'AI 门店安全智能诊断 (LLM + OCR/NLP) — 年节约 6400 小时 / 320 万元。',
+    ]
+  },
+  {
+    ind: 'internet', start: 2018.2, end: 2023.7,
+    role_en: 'Sr. Data Analytics Expert', role_cn: '高级数据分析专家',
+    org_en: 'Alibaba Group', org_cn: '阿里巴巴集团',
+    city_en: 'Shanghai · Hangzhou · Guangzhou', city_cn: '上海 · 杭州 · 广州',
+    highlights_en: [
+      'Hema (Freshippo) — BI & User Research Lead; lifecycle tiering, assortment, mind-share products.',
+      'Quark / UC — Product & User BI Lead; membership, pricing algo, audience strategy, LTV.',
+      'Aliyun — Sales BI Lead; KPI design, sales conversion, industry opportunity sizing.',
+      'Tmall — Platform analytics; traffic conversion and merchant analytics.',
+    ],
+    highlights_cn: [
+      '盒马 — 商业智能与用户研究主管；用户生命周期分层、商品分析、心智商品打造。',
+      '夸克 / UC — 产品和用户 BI 主管；会员模型、价格策略算法、人群策略、LTV。',
+      '阿里云 — 决策支持 / 销售 BI 主管；销售 KPI 制定、转化分析、行业机会洞察。',
+      '天猫 — 平台分析；APP 流量转化分析、商家分析。',
+    ]
+  },
+  {
+    ind: 'education', start: 2016.12, end: 2018.2,
+    role_en: 'BI Manager', role_cn: 'BI 经理',
+    org_en: 'University of Washington', org_cn: '华盛顿大学',
+    city_en: 'Seattle', city_cn: '西雅图',
+    highlights_en: [
+      'Led BI team; AI-based scholarship optimization and student churn early-warning model.',
+    ],
+    highlights_cn: [
+      '领导 BI 团队；应用 AI 算法优化奖学金分配，构建学生流失预警模型。',
+    ]
+  },
+  {
+    ind: 'healthcare', start: 2012.7, end: 2016.12,
+    role_en: 'Manager · Project Manager · Sr. Analyst', role_cn: '经理 / 项目经理 / 高级分析师',
+    org_en: 'J&J Ethicon', org_cn: '强生 · 爱惜康',
+    city_en: 'New Jersey', city_cn: '新泽西',
+    highlights_en: [
+      'Led the Advanced Analytics team; global sales forecasting, portfolio management, market segmentation, customer tiering.',
+    ],
+    highlights_cn: [
+      '领导 Advanced Analytics 团队；全球销售预测、产品组合管理、市场细分与客户分层分析。',
+    ]
+  },
+  {
+    ind: 'consulting', start: 2010.83, end: 2012.7,
+    role_en: 'Business Analyst', role_cn: '商业分析师',
+    org_en: 'Novartis / KMK Consulting', org_cn: '诺华 · KMK 咨询',
+    city_en: 'New Jersey', city_cn: '新泽西',
+    highlights_en: [
+      'Brand marketing analytics; marketing-mix models forecasting promotion impact.',
+    ],
+    highlights_cn: [
+      '负责品牌营销数据分析，建立组合模型预测市场推广效果。',
+    ]
+  },
+];
+
+const EDUCATION = [
+  { period: '2025.09 – 2027.06', en_school: 'Peking U. Guanghua · Northwestern Kellogg', cn_school: '北大光华 + 西北 Kellogg', en_field: 'EMBA', cn_field: 'EMBA 联合项目' },
+  { period: '2008.09 – 2010.10', en_school: 'Rutgers, The State University of NJ', cn_school: '新泽西州立罗格斯大学', en_field: 'M.A. Economics (TA, Stats Dept.)', cn_field: '经济系硕士 · 统计系助教' },
+  { period: '2004.09 – 2008.06', en_school: 'Communication University of China', cn_school: '中国传媒大学', en_field: 'B.A. Media Management', cn_field: '媒体管理系 本科' },
+];
+
+/* ===================== STATE ===================== */
+let LANG = 'zh';
+let activeInd = 'all';
+let zoom = 1;
+
+/* ===================== I18N ===================== */
+function applyI18N() {
+  document.documentElement.lang = LANG === 'zh' ? 'zh' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (I18N[LANG][k]) el.textContent = I18N[LANG][k];
+  });
+  document.getElementById('search').placeholder = I18N[LANG]['search-ph'];
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === LANG));
+  renderFilters();
+  renderTree();
+  renderTimeline();
+  renderEducation();
+}
+
+/* ===================== FILTERS ===================== */
+function renderFilters() {
+  const wrap = document.getElementById('ind-filters');
+  wrap.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'ind-chip' + (activeInd === 'all' ? ' active' : '');
+  allBtn.style.setProperty('--ind', 'var(--glp-navy)');
+  allBtn.innerHTML = `<span class="dot"></span>${I18N[LANG]['filter-all']}`;
+  allBtn.onclick = () => { activeInd = 'all'; renderFilters(); applyHighlight(); };
+  wrap.appendChild(allBtn);
+  INDUSTRIES.forEach(i => {
+    const b = document.createElement('button');
+    b.className = 'ind-chip' + (activeInd === i.id ? ' active' : '');
+    b.style.setProperty('--ind', i.color);
+    b.innerHTML = `<span class="dot"></span>${LANG === 'zh' ? i.short_cn : i.short_en}`;
+    b.onclick = () => { activeInd = (activeInd === i.id ? 'all' : i.id); renderFilters(); applyHighlight(); };
+    wrap.appendChild(b);
+  });
+}
+
+/* ===================== TREE LAYOUT ===================== */
+const VIEWBOX = 1000;
+const CENTER = VIEWBOX / 2;
+const R_IND = 170;
+const R_CAP = 300;
+const R_TECH = 430;
+
+function renderTree() {
+  const svg = document.getElementById('tree');
+  svg.innerHTML = '';
+  svg.setAttribute('viewBox', `0 0 ${VIEWBOX} ${VIEWBOX}`);
+
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  g.setAttribute('id', 'tree-g');
+  g.setAttribute('transform', `translate(${CENTER},${CENTER}) scale(${zoom})`);
+  svg.appendChild(g);
+
+  /* ---- Compute positions ---- */
+  // Industries: evenly distributed but use angleHint
+  const indCount = INDUSTRIES.length;
+  INDUSTRIES.forEach((ind, i) => {
+    const a = (ind.angleHint != null) ? deg2rad(ind.angleHint) : (i / indCount) * 2 * Math.PI - Math.PI/2;
+    ind._a = a;
+    ind._x = Math.cos(a) * R_IND;
+    ind._y = Math.sin(a) * R_IND;
+  });
+
+  // Capabilities: evenly distributed around full circle
+  const capCount = CAPABILITIES.length;
+  CAPABILITIES.forEach((cap, i) => {
+    const a = (i / capCount) * 2 * Math.PI - Math.PI/2 + (Math.PI / capCount);
+    cap._a = a;
+    cap._x = Math.cos(a) * R_CAP;
+    cap._y = Math.sin(a) * R_CAP;
+  });
+
+  // Techniques: group by capability, fan out within ±arc around capability angle
+  const techByCap = {};
+  CAPABILITIES.forEach(c => techByCap[c.id] = []);
+  TECHNIQUES.forEach(t => { techByCap[t.cap].push(t); });
+  CAPABILITIES.forEach(cap => {
+    const items = techByCap[cap.id];
+    const n = items.length;
+    const arc = Math.min(2 * Math.PI / CAPABILITIES.length * 0.95, 0.7);
+    items.forEach((t, i) => {
+      const off = n === 1 ? 0 : (i - (n - 1) / 2) * (arc / Math.max(n - 1, 1));
+      const a = cap._a + off;
+      t._a = a;
+      t._x = Math.cos(a) * R_TECH;
+      t._y = Math.sin(a) * R_TECH;
+    });
+  });
+
+  /* ---- Draw links ---- */
+  // tech -> primary cap (solid), tech -> secondary cap (dashed)
+  TECHNIQUES.forEach(t => {
+    const cap = CAPABILITIES.find(c => c.id === t.cap);
+    if (cap) g.appendChild(drawLink(t._x, t._y, cap._x, cap._y, false, `link-tc link-tech-${t.id} link-cap-${cap.id} ${t.inds.map(i => 'link-ind-' + i).join(' ')}`));
+    (t.caps || []).forEach(cid => {
+      const c2 = CAPABILITIES.find(c => c.id === cid);
+      if (c2) g.appendChild(drawLink(t._x, t._y, c2._x, c2._y, true, `link-tc secondary link-tech-${t.id} link-cap-${c2.id} ${t.inds.map(i => 'link-ind-' + i).join(' ')}`));
+    });
+  });
+
+  // cap -> ind links (solid for each industry the cap touches)
+  CAPABILITIES.forEach(cap => {
+    const indsForCap = new Set();
+    TECHNIQUES.filter(t => t.cap === cap.id || (t.caps||[]).includes(cap.id)).forEach(t => t.inds.forEach(i => indsForCap.add(i)));
+    indsForCap.forEach(indId => {
+      const ind = INDUSTRIES.find(i => i.id === indId);
+      if (ind) g.appendChild(drawLink(cap._x, cap._y, ind._x, ind._y, false, `link-ci link-cap-${cap.id} link-ind-${ind.id}`));
+    });
+  });
+
+  // ind -> center
+  INDUSTRIES.forEach(ind => {
+    g.appendChild(drawLink(0, 0, ind._x, ind._y, false, `link-ic link-ind-${ind.id}`));
+  });
+
+  /* ---- Draw nodes ---- */
+  // Center
+  const centerG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  centerG.setAttribute('class', 'node center');
+  const cCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  cCircle.setAttribute('r', 38);
+  cCircle.setAttribute('fill', 'var(--bone)');
+  cCircle.setAttribute('stroke', 'var(--accent)');
+  cCircle.setAttribute('stroke-width', 1.2);
+  centerG.appendChild(cCircle);
+  const cText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  cText.setAttribute('text-anchor', 'middle');
+  cText.setAttribute('dy', 7);
+  cText.setAttribute('font-size', 22);
+  cText.setAttribute('letter-spacing', -0.5);
+  cText.textContent = 'CG';
+  centerG.appendChild(cText);
+  const cSub = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  cSub.setAttribute('text-anchor', 'middle');
+  cSub.setAttribute('y', 58);
+  cSub.setAttribute('font-size', 10);
+  cSub.setAttribute('font-style', 'normal');
+  cSub.setAttribute('letter-spacing', 2);
+  cSub.setAttribute('fill', 'var(--muted)');
+  cSub.textContent = LANG === 'zh' ? 'Chen Gao · 高 晨' : 'Chen Gao';
+  centerG.appendChild(cSub);
+  g.appendChild(centerG);
+
+  // Industries
+  INDUSTRIES.forEach(ind => {
+    const ng = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    ng.setAttribute('class', `node industry node-ind-${ind.id} link-ind-${ind.id}`);
+    ng.setAttribute('transform', `translate(${ind._x},${ind._y})`);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('r', 14); c.setAttribute('fill', ind.color); c.setAttribute('stroke', 'white'); c.setAttribute('stroke-width', 2);
+    ng.appendChild(c);
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const labelOnRight = ind._x >= 0;
+    const labelDist = 26;
+    t.setAttribute('x', labelOnRight ? labelDist : -labelDist);
+    t.setAttribute('text-anchor', labelOnRight ? 'start' : 'end');
+    t.setAttribute('dy', 4);
+    t.setAttribute('fill', ind.color);
+    t.textContent = (LANG === 'zh' ? ind.cn : ind.en).toUpperCase();
+    ng.appendChild(t);
+    ng.addEventListener('mouseenter', (e) => { setHover(`ind-${ind.id}`); showTip(e, ind.en, ind.cn, null, [ind.id]); });
+    ng.addEventListener('mousemove', moveTip);
+    ng.addEventListener('mouseleave', () => { clearHover(); hideTip(); });
+    ng.addEventListener('click', () => { activeInd = (activeInd === ind.id ? 'all' : ind.id); renderFilters(); applyHighlight(); });
+    g.appendChild(ng);
+  });
+
+  // Capabilities
+  CAPABILITIES.forEach(cap => {
+    const ng = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    ng.setAttribute('class', `node capability node-cap-${cap.id} link-cap-${cap.id}`);
+    ng.setAttribute('transform', `translate(${cap._x},${cap._y})`);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('r', 8); c.setAttribute('fill', 'var(--bone)'); c.setAttribute('stroke', 'var(--accent)'); c.setAttribute('stroke-width', 1.5);
+    ng.appendChild(c);
+    const lines = (LANG === 'zh' ? cap.cn : cap.en).split(/\s\/\s|\s·\s/);
+    const onRight = cap._x >= 0;
+    lines.forEach((line, i) => {
+      const tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      tx.setAttribute('x', onRight ? 14 : -14);
+      tx.setAttribute('text-anchor', onRight ? 'start' : 'end');
+      tx.setAttribute('y', (i - (lines.length - 1) / 2) * 12 + 4);
+      tx.textContent = line;
+      ng.appendChild(tx);
+    });
+    const indSet = new Set();
+    TECHNIQUES.filter(t => t.cap === cap.id || (t.caps||[]).includes(cap.id)).forEach(t => t.inds.forEach(i => indSet.add(i)));
+    ng.addEventListener('mouseenter', (e) => { setHover(`cap-${cap.id}`); showTip(e, cap.en, cap.cn, null, [...indSet]); });
+    ng.addEventListener('mousemove', moveTip);
+    ng.addEventListener('mouseleave', () => { clearHover(); hideTip(); });
+    g.appendChild(ng);
+  });
+
+  // Techniques
+  TECHNIQUES.forEach(t => {
+    const ng = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    const classes = ['node', 'technique', `node-tech-${t.id}`, `link-tech-${t.id}`, `link-cap-${t.cap}`];
+    (t.caps || []).forEach(c => classes.push(`link-cap-${c}`));
+    t.inds.forEach(i => classes.push(`link-ind-${i}`));
+    ng.setAttribute('class', classes.join(' '));
+    ng.setAttribute('transform', `translate(${t._x},${t._y})`);
+    const primaryColor = (INDUSTRIES.find(ix => ix.id === t.inds[0]) || {}).color || 'var(--accent)';
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('r', 5); c.setAttribute('fill', primaryColor); c.setAttribute('fill-opacity', 0.85);
+    c.setAttribute('stroke', 'white'); c.setAttribute('stroke-width', 1);
+    ng.appendChild(c);
+    // Label, rotated for readability
+    const deg = rad2deg(t._a);
+    const flip = (deg > 90 && deg < 270);
+    const tx = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    if (flip) {
+      tx.setAttribute('transform', `rotate(${deg + 180}) translate(-12,0)`);
+      tx.setAttribute('text-anchor', 'end');
+    } else {
+      tx.setAttribute('transform', `rotate(${deg}) translate(12,0)`);
+      tx.setAttribute('text-anchor', 'start');
+    }
+    tx.setAttribute('dy', 3);
+    tx.textContent = LANG === 'zh' ? t.cn : t.en;
+    ng.appendChild(tx);
+    ng.addEventListener('mouseenter', (e) => { setHover(`tech-${t.id}`); showTip(e, t.en, t.cn, CAPABILITIES.find(c => c.id === t.cap), t.inds); });
+    ng.addEventListener('mousemove', moveTip);
+    ng.addEventListener('mouseleave', () => { clearHover(); hideTip(); });
+    g.appendChild(ng);
+  });
+
+  applyHighlight();
+}
+
+function drawLink(x1, y1, x2, y2, dashed, cls) {
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  // Curved (slight) using midpoint
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  // pull toward origin a bit for a radial bend
+  const d = `M ${x1},${y1} Q ${mx*0.6},${my*0.6} ${x2},${y2}`;
+  path.setAttribute('d', d);
+  path.setAttribute('class', `link ${cls || ''}`);
+  if (dashed) path.classList.add('secondary');
+  return path;
+}
+
+function deg2rad(d) { return d * Math.PI / 180; }
+function rad2deg(r) { return r * 180 / Math.PI; }
+
+/* ===================== HIGHLIGHT ===================== */
+let hoveredKey = null;
+function setHover(k) { hoveredKey = k; applyHighlight(); }
+function clearHover() { hoveredKey = null; applyHighlight(); }
+
+function applyHighlight() {
+  const allNodes = document.querySelectorAll('#tree .node');
+  const allLinks = document.querySelectorAll('#tree .link');
+  allNodes.forEach(n => { n.classList.remove('dim'); });
+  allLinks.forEach(l => { l.classList.remove('dim', 'highlight'); });
+
+  // Industry filter
+  if (activeInd !== 'all') {
+    allNodes.forEach(n => {
+      const keep = n.classList.contains(`link-ind-${activeInd}`) || n.classList.contains('center') || n.classList.contains(`node-ind-${activeInd}`);
+      if (!keep) n.classList.add('dim');
+    });
+    allLinks.forEach(l => {
+      if (!l.classList.contains(`link-ind-${activeInd}`) && !l.classList.contains(`link-ic`)) l.classList.add('dim');
+      if (l.classList.contains(`link-ind-${activeInd}`)) l.classList.add('highlight');
+    });
+  }
+
+  // Hover overrides for finer view
+  if (hoveredKey) {
+    allNodes.forEach(n => { if (!n.classList.contains(hoveredKey) && !n.classList.contains('center')) n.classList.add('dim'); else n.classList.remove('dim'); });
+    allLinks.forEach(l => { if (!l.classList.contains(hoveredKey)) l.classList.add('dim'); else { l.classList.remove('dim'); l.classList.add('highlight'); } });
+  }
+
+  // Search match
+  const q = (document.getElementById('search').value || '').trim().toLowerCase();
+  if (q) {
+    let anyMatch = false;
+    allNodes.forEach(n => n.classList.remove('match'));
+    TECHNIQUES.forEach(t => {
+      if (t.en.toLowerCase().includes(q) || t.cn.includes(q)) {
+        const el = document.querySelector(`.node-tech-${t.id}`);
+        if (el) { el.classList.add('match'); el.classList.remove('dim'); anyMatch = true; }
+      }
+    });
+    CAPABILITIES.forEach(c => {
+      if (c.en.toLowerCase().includes(q) || c.cn.includes(q)) {
+        const el = document.querySelector(`.node-cap-${c.id}`);
+        if (el) { el.classList.add('match'); el.classList.remove('dim'); anyMatch = true; }
+      }
+    });
+    INDUSTRIES.forEach(i => {
+      if (i.en.toLowerCase().includes(q) || i.cn.includes(q)) {
+        const el = document.querySelector(`.node-ind-${i.id}`);
+        if (el) { el.classList.add('match'); el.classList.remove('dim'); anyMatch = true; }
+      }
+    });
+    if (anyMatch) allNodes.forEach(n => { if (!n.classList.contains('match') && !n.classList.contains('center')) n.classList.add('dim'); });
+  }
+}
+
+/* ===================== TOOLTIP ===================== */
+function showTip(e, en, cn, cap, inds) {
+  const tip = document.getElementById('tooltip');
+  let html = `<div class="tip-title">${LANG === 'zh' ? cn : en}</div><div class="tip-sub">${LANG === 'zh' ? en : cn}</div>`;
+  if (cap) html += `<div style="margin-top:6px;font-size:10.5px;color:#d8c298">${LANG === 'zh' ? cap.cn : cap.en}</div>`;
+  if (inds && inds.length) {
+    html += `<div style="margin-top:6px">`;
+    inds.forEach(id => {
+      const i = INDUSTRIES.find(x => x.id === id);
+      if (i) html += `<span class="tip-ind" style="background:${i.color}; color:white">${LANG === 'zh' ? i.short_cn : i.short_en}</span>`;
+    });
+    html += `</div>`;
+  }
+  tip.innerHTML = html;
+  tip.style.opacity = 1;
+  moveTip(e);
+}
+function moveTip(e) {
+  const tip = document.getElementById('tooltip');
+  const stage = document.getElementById('stage').getBoundingClientRect();
+  let x = e.clientX - stage.left + 14;
+  let y = e.clientY - stage.top + 14;
+  if (x + 260 > stage.width) x = e.clientX - stage.left - 270;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+function hideTip() { document.getElementById('tooltip').style.opacity = 0; }
+
+/* ===================== ZOOM ===================== */
+function setZoom(z) {
+  zoom = Math.max(0.5, Math.min(2.2, z));
+  const g = document.getElementById('tree-g');
+  if (g) g.setAttribute('transform', `translate(${CENTER},${CENTER}) scale(${zoom})`);
+}
+
+/* ===================== TIMELINE ===================== */
+function renderTimeline() {
+  const yearsEl = document.getElementById('timeline-years');
+  const barsEl = document.getElementById('timeline-bars');
+  const detailsEl = document.getElementById('timeline-details');
+  yearsEl.innerHTML = '';
+  barsEl.innerHTML = '';
+  detailsEl.innerHTML = '';
+
+  const yearsList = [2010, 2013, 2016, 2019, 2022, 2025, 2026];
+  yearsList.forEach(y => {
+    const e = document.createElement('div');
+    e.className = 'year';
+    e.textContent = y;
+    yearsEl.appendChild(e);
+  });
+
+  const min = 2010, max = 2026.5;
+  const sortedExp = [...EXPERIENCE].sort((a, b) => b.start - a.start);
+  sortedExp.forEach((exp, idx) => {
+    const ind = INDUSTRIES.find(i => i.id === exp.ind);
+    const bar = document.createElement('div');
+    bar.className = 'timeline-bar';
+    bar.style.setProperty('--ind', ind.color);
+    const leftPct = ((exp.start - min) / (max - min)) * 100;
+    const widthPct = ((exp.end - exp.start) / (max - min)) * 100;
+    const fill = document.createElement('div');
+    fill.className = 'fill';
+    fill.style.left = leftPct + '%';
+    fill.style.width = widthPct + '%';
+    fill.textContent = `${LANG === 'zh' ? exp.org_cn : exp.org_en} · ${LANG === 'zh' ? exp.role_cn.replace(/\s\(.*\)/,'') : exp.role_en}`;
+    bar.appendChild(fill);
+    bar.addEventListener('click', () => toggleExpDetail(exp, idx));
+    bar.addEventListener('mouseenter', () => { fill.style.boxShadow = '0 4px 14px rgba(0,0,0,.18)'; });
+    bar.addEventListener('mouseleave', () => { fill.style.boxShadow = ''; });
+    barsEl.appendChild(bar);
+  });
+
+  // Show GLP (latest) detail by default
+  toggleExpDetail(sortedExp[0], 0);
+}
+
+function toggleExpDetail(exp, idx) {
+  const detailsEl = document.getElementById('timeline-details');
+  const ind = INDUSTRIES.find(i => i.id === exp.ind);
+  detailsEl.style.setProperty('--ind', ind.color);
+  detailsEl.innerHTML = `
+    <div class="timeline-detail active" style="border-left-color:${ind.color}">
+      <h3>${LANG === 'zh' ? exp.org_cn : exp.org_en} · <span style="font-style:normal;font-size:14px;color:${ind.color};font-weight:600;letter-spacing:1px">${LANG === 'zh' ? exp.role_cn : exp.role_en}</span></h3>
+      <div class="meta">${formatPeriod(exp.start)} — ${formatPeriod(exp.end)} · ${LANG === 'zh' ? exp.city_cn : exp.city_en}</div>
+      <ul>${(LANG === 'zh' ? exp.highlights_cn : exp.highlights_en).map(h => `<li>${h}</li>`).join('')}</ul>
+    </div>`;
+}
+
+function formatPeriod(p) {
+  if (p >= 2026.4) return LANG === 'zh' ? '至今' : 'Now';
+  const y = Math.floor(p);
+  const m = Math.round((p - y) * 12) + 1;
+  return `${y}.${String(m).padStart(2, '0')}`;
+}
+
+/* ===================== EDUCATION ===================== */
+function renderEducation() {
+  const grid = document.getElementById('edu-grid');
+  grid.innerHTML = '';
+  EDUCATION.forEach(ed => {
+    const card = document.createElement('div');
+    card.className = 'edu-card';
+    card.innerHTML = `
+      <div class="period">${ed.period}</div>
+      <h4>${LANG === 'zh' ? ed.cn_school : ed.en_school}</h4>
+      <div class="field">${LANG === 'zh' ? ed.cn_field : ed.en_field}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ===================== INIT ===================== */
+document.querySelectorAll('.lang-toggle button').forEach(b => {
+  b.addEventListener('click', () => { LANG = b.dataset.lang; applyI18N(); });
+});
+document.getElementById('search').addEventListener('input', applyHighlight);
+document.getElementById('zoom-in').addEventListener('click', () => setZoom(zoom * 1.18));
+document.getElementById('zoom-out').addEventListener('click', () => setZoom(zoom / 1.18));
+document.getElementById('zoom-reset').addEventListener('click', () => setZoom(1));
+
+applyI18N();
+window.addEventListener('resize', () => { /* SVG is viewBox-scaled; no rerender needed */ });
+</script>
+</body>
+</html>
